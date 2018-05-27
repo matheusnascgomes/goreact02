@@ -8,6 +8,7 @@ export const Container = styled.div`
     height: 100px;
     padding: 30px;
     width: 100%;
+    background-color: black;
 
     .info_header{
 
