@@ -1,24 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
+import api from '../../services/api';
 
-import { Container, FormStyled, ListSeach, ListItems } from './styles';
+import ListSearchView from '../../components/ListSearchView';
+import { Container, FormStyled } from './styles';
 
-const Sidebar = () => (
-  <Container>
-    <FormStyled>
-      <input type="text" placeholder="Novo repositório" />
-      <button><i className="fa fa-plus-circle" /></button>
-    </FormStyled>
-    <ListSeach>
-      <ListItems>
-        <img src="https://avatars3.githubusercontent.com/u/69631?v=4" alt="facebook" />
-        <div className="text">
-          <p>react-navigation</p>
-          <small>React Community</small>
-        </div>
-        <div className="icon_select"><i className="fa fa-angle-right" /></div>
-      </ListItems>
-    </ListSeach>
-  </Container>
-);
+export default class Sidebar extends Component {
+    state = {
+      repositoryInput: '',
+      repositories: [],
+    }
 
-export default Sidebar;
+    handleSearch = async (e) => {
+      e.preventDefault();
+
+      try {
+        const { data: repository } = await api.get(`/repos/${this.state.repositoryInput}`);
+
+        this.setState({
+          repositories: [...this.state.repositories, {
+            id: repository.id,
+            name: repository.name,
+            organization: repository.organization.login,
+            image: repository.owner.avatar_url,
+
+          }],
+        });
+      } catch (error) {
+        console.log(error);
+      }
+
+      console.log(this.state.repositories);
+    }
+
+    render() {
+      return (
+        <Container>
+          <FormStyled onSubmit={this.handleSearch}>
+            <input
+              type="text"
+              placeholder="Novo repositório"
+              onChange={e => this.setState({ repositoryInput: e.target.value })}
+            />
+            <button>
+              <i className="fa fa-plus-circle" />
+            </button>
+          </FormStyled>
+
+          <ListSearchView repo={this.state.repositories} />
+
+        </Container>
+      );
+    }
+}
+
