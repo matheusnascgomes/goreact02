@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: gray;
-    height: 100%;
+    background-color: #FFF;
+    height: 100vh;
     width: 320px;
     padding: 30px;
 
@@ -55,9 +55,10 @@ export const ListItems = styled.div`
         p{
             font-weight: bold;
             margin-bottom: 2px;
+            font-size: 14px;
         }
         small{
-            font-size: 14px;
+            font-size: 12px;
             color: #a2a0a0;
         }
     }

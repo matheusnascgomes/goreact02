@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, FilterStatus } from './styles';
 
 const Header = () => (
   <Container>
@@ -12,13 +12,11 @@ const Header = () => (
       </div>
     </div>
 
-    <div className="filter">
-      <select className="">
-        <option>Todas</option>
-        <option>Abertas</option>
-        <option>Fechadas</option>
-      </select>
-    </div>
+    <FilterStatus>
+      <option>Todas</option>
+      <option>Abertas</option>
+      <option>Fechadas</option>
+    </FilterStatus>
   </Container>
 );
 
