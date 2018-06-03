@@ -10,22 +10,7 @@ export const ListItems = styled.div`
 
 display: flex;
 align-items: center;
-
-.text{
-    display: flex;
-    flex-direction: column;
-    margin-left: 8px;
-
-    p{
-        font-weight: bold;
-        margin-bottom: 2px;
-        font-size: 14px;
-    }
-    small{
-        font-size: 12px;
-        color: #a2a0a0;
-    }
-}
+margin: 4px 0;
 
 img{
     border-radius: 3px;
@@ -33,9 +18,33 @@ img{
     width: 45px;
 }
 
-.icon_select{
-    font-weight: bold;
-    margin-left: 67px;
-    color: #a2a0a0;
+.block_info{
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .text{
+
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+
+        p{
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-size: 14px;
+        }
+        small{
+            font-size: 12px;
+            color: #a2a0a0;
+        }
+    }
+
+    .icon_select{
+        font-weight: bold;
+        color: #a2a0a0;
+    }
+
 }
 `;
