@@ -46,7 +46,7 @@ export default class Sidebar extends Component {
             </button>
           </FormStyled>
 
-          <ListSearchView repo={this.state.repositories} />
+          <ListSearchView repos={this.state.repositories} />
 
         </Container>
       );
