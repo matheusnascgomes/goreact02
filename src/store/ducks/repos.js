@@ -3,26 +3,23 @@
  */
 
 export const Types = {
-  ADD: 'repos/add',
-  LIST: 'repos/list',
+  ADD: 'repos/ADD',
+  LIST: 'repos/LIST',
 };
-
 
 /**
  * Reducers
  */
-const INITIAL_STATE = [{
-  id: 1,
-  name: 'react',
-  organizatiion: 'facebook',
-}];
+const INITIAL_STATE = [];
 
 export default function repos(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.ADD:
-      return [...state];
-    case Types.LIST:
-      return state;
+      return [...state, {
+        id: 2,
+        name: 'vuejs',
+        organization: 'vue',
+      }];
 
     default:
       return state;
@@ -34,13 +31,8 @@ export default function repos(state = INITIAL_STATE, action) {
  */
 
 export const Creators = {
-  addRepository: repositories => ({
+  addRepository: () => ({
     type: Types.ADD,
-    payload: { repositories },
-  }),
-  listRepositories: repositories => ({
-    type: Types.LIST,
-    payload: { repositories },
   }),
 };
 
