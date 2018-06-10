@@ -1,9 +1,10 @@
 import { all, takeLatest } from 'redux-saga/effects';
 
-import { addRepos } from './repos';
+import { Types as ReposTypes } from '../ducks/repos';
+import { addRepository } from './repos';
 
-export default function* rootSaga(){
-    yield all([
-        takeLatest('TYPE', addRepos),
-    ]);
+export default function* rootSaga() {
+  yield all([
+    takeLatest(ReposTypes.ADD_REQUEST, addRepository),
+  ]);
 }

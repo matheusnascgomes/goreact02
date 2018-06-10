@@ -2,18 +2,17 @@ import { call, put } from 'redux-saga/effects';
 
 import api from '../../services/api';
 
-import { 'action' }  from '...'
+import { Creators as ReposActions } from '../ducks/repos';
 
-export function* addRepo(action) {
+export function* addRepository(action) {
   const { data } = yield call(api.get, `repos/${action.payload.repository}`);
 
   const repositoryData = {
     id: data.id,
-    name: data.full_name,
-    organization: data.organization,
-    url: data.url,
+    name: data.name,
+    organization: data.organization.login,
+    avatar: data.owner.avatar_url,
   };
 
-  yield put((repositoryData));
-
+  yield put(ReposActions.addRepositorySuccess(repositoryData));
 }

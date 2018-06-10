@@ -15,7 +15,7 @@ const INITIAL_STATE = [];
 export default function repos(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.ADD_SUCCESS:
-      return [...state, {}];
+      return [...state, action.payload.data];
     default:
       return state;
   }
@@ -28,11 +28,11 @@ export default function repos(state = INITIAL_STATE, action) {
 export const Creators = {
   addRepositoryRequest: repository => ({
     type: Types.ADD_REQUEST,
-    payload: repository,
+    payload: { repository },
   }),
   addRepositorySuccess: data => ({
     type: Types.ADD_SUCCESS,
-    payload: data,
+    payload: { data },
   }),
 };
 
