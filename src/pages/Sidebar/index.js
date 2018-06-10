@@ -10,7 +10,13 @@ import { Container, FormStyled } from './styles';
 
 class Sidebar extends Component {
 static propTypes = {
-  addRepository: PropTypes.func.isRequired,
+  addRepositoryRequest: PropTypes.func.isRequired,
+//   repos: PropTypes.arrayOf(PropTypes.shape({
+//     id: PropTypes.number,
+//     name: PropTypes.string,
+//     organization: PropTypes.string,
+//     avatar: PropTypes.string,
+//   })).isRequired,
 };
 
 state = {
@@ -19,8 +25,7 @@ state = {
 
 handleAddRepository = (event) => {
   event.preventDefault();
-  this.props.addRepository();
-  console.log(this.props.repos);
+  this.props.addRepositoryRequest(this.state.repositoryInput);
 }
 
 render() {
