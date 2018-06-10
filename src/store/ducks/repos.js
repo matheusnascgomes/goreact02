@@ -3,8 +3,8 @@
  */
 
 export const Types = {
-  ADD: 'repos/ADD',
-  LIST: 'repos/LIST',
+  ADD_REQUEST: 'repos/ADD_REQUEST',
+  ADD_SUCCESS: 'repos/ADD_SUCCESS',
 };
 
 /**
@@ -14,13 +14,8 @@ const INITIAL_STATE = [];
 
 export default function repos(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.ADD:
-      return [...state, {
-        id: 2,
-        name: 'vuejs',
-        organization: 'vue',
-      }];
-
+    case Types.ADD_SUCCESS:
+      return [...state, {}];
     default:
       return state;
   }
@@ -31,8 +26,13 @@ export default function repos(state = INITIAL_STATE, action) {
  */
 
 export const Creators = {
-  addRepository: () => ({
-    type: Types.ADD,
+  addRepositoryRequest: repository => ({
+    type: Types.ADD_REQUEST,
+    payload: repository,
+  }),
+  addRepositorySuccess: data => ({
+    type: Types.ADD_SUCCESS,
+    payload: data,
   }),
 };
 
