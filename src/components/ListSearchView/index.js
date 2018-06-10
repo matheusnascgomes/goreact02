@@ -21,7 +21,7 @@ const ListSearchView = ({ repo }) =>
 //   ));
 
   (
-     <ListSearch>
+    <ListSearch>
       {/* {repoItem} */}
     </ListSearch>
   );

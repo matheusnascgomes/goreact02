@@ -43,8 +43,12 @@ img{
 
     .icon_select{
         font-weight: bold;
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+    small{
+        font-size: 12px;
         color: #a2a0a0;
     }
-
 }
 `;
