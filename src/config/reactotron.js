@@ -1,12 +1,12 @@
 import Reactotron from 'reactotron-react-js';
-import { reactotronRedux } from "reactotron-redux";
+import { reactotronRedux } from 'reactotron-redux';
 
-if(process.env.NODE_ENV === 'development'){
-    const tron = Reactotron.configure()
+if (process.env.NODE_ENV === 'development') {
+  const tron = Reactotron.configure()
     .use(reactotronRedux())
     .connect();
 
-    tron.clear();
+  tron.clear();
 
-    console.tron = tron;
+  console.tron = tron;
 }
