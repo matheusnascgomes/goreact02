@@ -5,18 +5,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as repoActions } from '../../store/ducks/repos';
 
-// import ListSearchView from '../../components/ListSearchView';
+import ListSearchView from '../../components/ListSearchView';
 import { Container, FormStyled } from './styles';
 
 class Sidebar extends Component {
 static propTypes = {
   addRepositoryRequest: PropTypes.func.isRequired,
-//   repos: PropTypes.arrayOf(PropTypes.shape({
-//     id: PropTypes.number,
-//     name: PropTypes.string,
-//     organization: PropTypes.string,
-//     avatar: PropTypes.string,
-//   })).isRequired,
 };
 
 state = {
@@ -42,6 +36,7 @@ render() {
           <i className="fa fa-plus-circle" />
         </button>
       </FormStyled>
+      <ListSearchView />
     </Container>
   );
 }

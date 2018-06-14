@@ -5,6 +5,7 @@
 export const Types = {
   ADD_REQUEST: 'repos/ADD_REQUEST',
   ADD_SUCCESS: 'repos/ADD_SUCCESS',
+  SELECT_REPO: 'repos/SELECT_REPO',
 };
 
 /**
